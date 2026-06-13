@@ -12,6 +12,15 @@ You have __critical__ files under the Domoticz-Zigbee folder. In case of crash, 
 
 Of course you must backup the Domoticz Database `domoticz.db` (check to Domoticz) __at the same time__ in order to have consistency between the two.
 
+## Since stable8: data also stored in Domoticz
+
+Since the __stable8__ version, the plugin __also__ stores all of its information directly into the Domoticz database (`domoticz.db`), in addition to the `Data/DeviceList-xx.txt` files.
+
+This greatly simplifies re-installations: as all the relevant plugin information is already kept inside the Domoticz database, restoring that database is, in practice, enough to recover the plugin state, without having to manually copy back the `Data/` folder.
+
+However, in order to be able to troubleshoot potential issues, the plugin is still able to load the data the legacy way, from the `Data/DeviceList-xx.txt` files. This fallback is used __if and only if__ the timestamp of those files is more recent than the timestamp of the data written into Domoticz. Otherwise, the data stored in the Domoticz database is used.
+
+> __Note__: it is still recommended to back up all the items listed above (and especially the `Data/` folder) as an extra safety net.
 
 ## Assumption
 

@@ -6,6 +6,16 @@ Le dossier du plugin ZigBeeForDomoticZ contient des fichiers __critiques__ qu'il
 
 En plus de sauvegarder le plugin, pensez à sauvegarder votre coordinateur. Voir les guides sur : [https://zigate.fr/documentation/sauvegardez-et-restaurez-votre-zigate](https://zigate.fr/documentation/sauvegardez-et-restaurez-votre-zigate)
 
+## Depuis la version stable8 : stockage des données dans DomoticZ
+
+Depuis la version __stable8__, le plugin enregistre désormais __également__ l'ensemble de ses informations directement dans la base de données de DomoticZ (`domoticz.db`), en complément des fichiers `Data/DeviceList-xx.txt`.
+
+Cela simplifie grandement les réinstallations : toutes les informations pertinentes du plugin se trouvant déjà dans la base de données de DomoticZ, il suffit en pratique de restaurer cette dernière pour retrouver l'état du plugin, sans avoir à recopier manuellement le dossier `Data/`.
+
+En revanche, afin de pouvoir résoudre d'éventuels problèmes, le plugin reste capable de charger les données comme auparavant depuis les fichiers `Data/DeviceList-xx.txt`. Ce mode de secours n'est utilisé que __si et seulement si__ la date de ces fichiers est plus récente que la date d'écriture des données dans DomoticZ. Dans le cas contraire, ce sont les données stockées dans la base de données de DomoticZ qui sont prises en compte.
+
+> __Note__ : il reste néanmoins recommandé de sauvegarder l'ensemble des éléments listés ci-dessous (et notamment le dossier `Data/`) afin de disposer d'un filet de sécurité supplémentaire.
+
 ## Avant-propos
 
 Les explications suivantes seront données pour :
